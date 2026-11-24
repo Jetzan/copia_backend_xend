@@ -1,0 +1,41 @@
+[project]
+name = "xend-backend"
+version = "0.1.0"
+description = "Backend de Xend (FastAPI)"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "pydantic-settings",
+    "psycopg[binary,pool]",
+    "pymongo",
+    "pandas",
+    "matplotlib",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "httpx",          # lo usa el TestClient de FastAPI
+    "ruff",
+    "bandit",
+    "pip-audit",
+]
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=app/services --cov-report=term-missing"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.bandit]
+exclude_dirs = ["tests", ".venv"]

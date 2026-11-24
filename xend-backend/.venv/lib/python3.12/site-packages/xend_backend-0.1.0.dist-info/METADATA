@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: xend-backend
+Version: 0.1.0
+Summary: Backend de Xend (FastAPI)
+Requires-Python: >=3.11
+Requires-Dist: fastapi
+Requires-Dist: uvicorn[standard]
+Requires-Dist: pydantic-settings
+Requires-Dist: psycopg[binary,pool]
+Requires-Dist: pymongo
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: pytest-cov; extra == "dev"
+Requires-Dist: httpx; extra == "dev"
+Requires-Dist: ruff; extra == "dev"
+Requires-Dist: bandit; extra == "dev"
+Requires-Dist: pip-audit; extra == "dev"
